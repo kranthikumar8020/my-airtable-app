@@ -15,8 +15,6 @@ onMounted(() => {
 const loanHasResponses = (loanId: string) => {
   return airtable.getResponsesByLoanId(loanId).length > 0
 }
-
-// Toggle expand/collapse
 const toggleLoan = (loanId: string) => {
   expandedLoanId.value = expandedLoanId.value === loanId ? null : loanId
 }
@@ -45,8 +43,6 @@ const toggleLoan = (loanId: string) => {
         <button @click="toggleLoan(loan.id)" style="margin-top: 0.5rem;">
           {{ expandedLoanId === loan.id ? 'Hide Details' : 'View Details' }}
         </button>
-
-        <!-- ✅ Inline LoanDetails component -->
         <div v-if="expandedLoanId === loan.id" style="margin-top: 1rem;">
           <LoanDetails :loan-id="loan.id" />
         </div>
