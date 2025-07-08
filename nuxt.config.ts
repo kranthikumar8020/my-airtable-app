@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     AIRTABLE_BASE_ID: process.env.AIRTABLE_BASE_ID,
   },
   css: [
+    '/Users/macbook/my-airtable-app/assets/scss/primevue-theme.scss',
     'primeicons/primeicons.css',
     'primeflex/primeflex.css',
   ]
