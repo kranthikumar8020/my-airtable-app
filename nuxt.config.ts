@@ -9,5 +9,8 @@ export default defineNuxtConfig({
     'primevue/resources/primevue.min.css',
     'primeicons/primeicons.css',
     'primeflex/primeflex.css',
-  ]  
+  ],
+  build: {
+    transpile: ['primevue']
+  }
 })
