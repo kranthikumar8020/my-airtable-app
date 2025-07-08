@@ -1,0 +1,13 @@
+/* assets/css/main.css */
+
+html, body {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Ensure PrimeVue components use the same font */
+  .p-component {
+    font-family: 'Poppins', sans-serif !important;
+  }
+  
+  
+  
