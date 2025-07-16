@@ -51,8 +51,16 @@ const filteredConditions = computed(() => {
   <div v-if="loan" class="surface-ground p-4 border-round shadow-2">
     <h2 class="text-2xl font-bold mb-2">Loan: {{ loan.fields['⚡️ Deal Name'] || 'Unnamed' }}</h2>
     <p><strong>Loan ID:</strong> {{ loan.fields['⚡️ Loan ID'] || 'N/A' }}</p>
-    <p><strong>Amount (Max):</strong> ${{ loan.fields['⚡️ Loan Amount (Max)']?.toLocaleString() || 'N/A' }}</p>
-
+    <p><strong>Amount (Max):</strong> ${{ loan.fields['⚡️ Loan Amount (Max)']?.toLocaleString('en-US') || 'N/A' }}</p>
+    <p><strong>Lending Partner:</strong> {{ loan.fields['⚡️ Lending Partner'] || 'N/A' }}</p>
+    <p>
+  <strong>Rate Lock Expiration:</strong>
+  {{
+    loan.fields['⚡️ Rate Lock Expiration']
+      ? new Date(loan.fields['⚡️ Rate Lock Expiration']).toLocaleDateString('en-US')
+      : 'N/A'
+  }}
+</p>
     <hr class="my-4" />
 
     <h3 class="text-xl font-semibold mb-3">
