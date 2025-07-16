@@ -43,8 +43,6 @@ const filteredLoans = computed(() => {
           ({{ filteredLoans.length }} of {{ airtable.loans.length }})
         </span>
       </h1>
-
-      <!-- 🔍 Search Bar on the right -->
       <input
         v-model="searchTerm"
         type="text"
