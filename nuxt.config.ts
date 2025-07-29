@@ -15,8 +15,7 @@ export default defineNuxtConfig({
     AIRTABLE_BASE_ID: process.env.AIRTABLE_BASE_ID,
   },
   css: [
-    '@/assets/css/main.css',
-    'primevue/resources/themes/aura-light-blue/theme.css'
+    '@/assets/css/main.css'
   ],
   build: {
     transpile: ['primevue']
