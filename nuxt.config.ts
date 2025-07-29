@@ -16,10 +16,12 @@ export default defineNuxtConfig({
   },
   css: [
     '@/assets/css/main.css',
-    './node_modules/nuxt-primevue/node_modules/primevue/resources/themes/aura-light-blue/theme.css',
-    './node_modules/nuxt-primevue/node_modules/primevue/resources/primevue.min.css'
+    'primevue/resources/themes/aura-light-blue/theme.css'
   ],
   build: {
     transpile: ['primevue']
+  },
+  nitro: {
+    compatibilityDate: '2025-07-29'
   }
 })
