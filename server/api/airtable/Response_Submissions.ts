@@ -6,8 +6,6 @@ export default defineEventHandler(async (event: H3Event) => {
 
   const allResponseRecords: AirtableRecord[] = []
   let offset: string | undefined
-
-  //  Step 1: Fetch all Response Submissions (with pagination)
   do {
     const url = new URL(`https://api.airtable.com/v0/${config.AIRTABLE_BASE_ID}/Response%20Submissions`)
     if (offset) url.searchParams.set('offset', offset)
@@ -21,15 +19,11 @@ export default defineEventHandler(async (event: H3Event) => {
     allResponseRecords.push(...responseData.records)
     offset = responseData.offset
   } while (offset)
-
-  // Step 2: Extract unique Deal Condition IDs from all responses
   const dealConditionIDs = new Set<string>()
   allResponseRecords.forEach(record => {
     const ids = record.fields['Deal Conditions'] || []
     ids.forEach((id: string) => dealConditionIDs.add(id))
   })
-
-  // If no linked conditions, skip fetch
   let dealConditionsData: AirtableRecord[] = []
   if (dealConditionIDs.size > 0) {
     const filterFormula = `OR(${Array.from(dealConditionIDs)
@@ -56,8 +50,6 @@ export default defineEventHandler(async (event: H3Event) => {
   dealConditionsData.forEach(dc => {
     dealConditionMap.set(dc.id, dc.fields)
   })
-
-  // Step 3: Return enriched responses
   return allResponseRecords.map(record => ({
     id: record.id,
     name: record.fields.Name || 'Unnamed',
