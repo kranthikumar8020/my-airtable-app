@@ -8,6 +8,164 @@ html, body {
   .p-component {
     font-family: 'Poppins', sans-serif !important;
   }
+
+/* Basic styling for PrimeVue components to ensure visibility */
+.p-inputtext {
+  display: block !important;
+  width: 100% !important;
+  padding: 0.5rem !important;
+  border: 1px solid #ccc !important;
+  border-radius: 4px !important;
+  font-size: 1rem !important;
+  background-color: white !important;
+  color: #333 !important;
+}
+
+/* Force Select to have proper box appearance */
+.p-select,
+div[class*="p-select"],
+.p-select.p-component,
+.p-select.p-inputwrapper {
+  display: block !important;
+  width: 100% !important;
+  min-height: 2.5rem !important;
+  border: 1px solid #ccc !important;
+  border-radius: 4px !important;
+  background-color: white !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.p-select-label,
+.p-select-label.p-inputtext {
+  padding: 0.5rem !important;
+  color: #333 !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  border: none !important;
+  background: transparent !important;
+  min-height: 2.5rem !important;
+  line-height: 1.5 !important;
+  font-size: 1rem !important;
+}
+
+.p-select-trigger {
+  position: absolute !important;
+  right: 0.5rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  pointer-events: none !important;
+  border-left: 1px solid #ccc !important;
+  padding-left: 0.5rem !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Fix Select overlap issue - using correct PrimeVue classes */
+.p-select-panel,
+.p-select-items-wrapper,
+.p-select-list,
+.p-select-items,
+.p-overlay-panel,
+.p-component-overlay {
+  z-index: 9999 !important;
+  position: absolute !important;
+  background-color: white !important;
+  border: 1px solid #ccc !important;
+  border-radius: 4px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  max-height: 200px !important;
+  overflow-y: auto !important;
+}
+
+/* Target all possible Select panel selectors */
+[class*="p-select-panel"],
+[class*="p-overlay-panel"],
+[class*="p-component-overlay"] {
+  z-index: 9999 !important;
+  position: absolute !important;
+}
+
+.p-select-items {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.p-select-item {
+  padding: 0.5rem !important;
+  cursor: pointer !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+  line-height: 1.5 !important;
+  font-size: 1rem !important;
+}
+
+.p-select-item:hover {
+  background-color: #f8f9fa !important;
+}
+
+.p-select-item:last-child {
+  border-bottom: none !important;
+}
+
+.p-button {
+  display: inline-block !important;
+  padding: 0.5rem 1rem !important;
+  background-color: #007bff !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 4px !important;
+  font-size: 1rem !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.p-button:hover {
+  background-color: #0056b3 !important;
+}
+
+/* Form field styling */
+.p-field {
+  margin-bottom: 1.5rem !important;
+  position: relative !important;
+}
+
+.p-field label {
+  display: block !important;
+  margin-bottom: 0.5rem !important;
+  font-weight: bold !important;
+  color: #333 !important;
+}
+
+/* Form container styling to ensure proper positioning */
+.form-container {
+  position: relative !important;
+  z-index: 1 !important;
+  padding-bottom: 2rem !important;
+}
+
+/* Add extra spacing after Select field */
+.p-field:has(.p-select) {
+  margin-bottom: 3rem !important;
+}
+
+/* Error styling */
+.p-invalid {
+  border-color: #dc3545 !important;
+}
+
+.error {
+  color: #dc3545 !important;
+  font-size: 0.9rem !important;
+  margin-top: 0.25rem !important;
+}
   
   
   

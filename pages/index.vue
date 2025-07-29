@@ -10,7 +10,7 @@
       <NuxtLink to="/Loan-Pipeline" class="sub-link">
         ➤ Loan Pipeline
       </NuxtLink>
-      <NuxtLink to="/Deal-Conditions" class="sub-link">
+      <NuxtLink to="/Deal-Conditons" class="sub-link">
         ➤ Deal Conditions
       </NuxtLink>
       <NuxtLink to="/Response-Submissions" class="sub-link">
