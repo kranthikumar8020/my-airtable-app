@@ -7,14 +7,12 @@ import Button from 'primevue/button';
 import { useToast } from 'primevue/usetoast';
 import Toast from 'primevue/toast';
 
-// Register validation rules globally
 defineRule('required', required);
 defineRule('min', min);
 defineRule('numeric', numeric);
 defineRule('min_value', min_value);
 defineRule('one_of', one_of);
 
-// Product Type options
 const productTypeOptions = [
   'Rental - Single Asset',
   'Rental - Portfolio',
@@ -25,7 +23,6 @@ const productTypeOptions = [
 const airtable = useAirtableStore();
 const toast = useToast();
 
-// Validation schema using rule-based validation (more concise)
 const { handleSubmit, errors, resetForm } = useForm({
   initialValues: {
     dealName: '',
@@ -39,12 +36,10 @@ const { handleSubmit, errors, resetForm } = useForm({
   },
 });
 
-// Bind fields with explicit typing to avoid TypeScript errors
 const { value: dealName } = useField('dealName', undefined, { initialValue: '' });
 const { value: loanAmount } = useField('loanAmount', undefined, { initialValue: '' });
 const { value: productType } = useField('productType', undefined, { initialValue: '' });
 
-// Submit handler
 const submitForm = handleSubmit(async (values) => {
   try {
     await $fetch('/api/airtable/Loan_Pipeline_Test', {
@@ -55,10 +50,9 @@ const submitForm = handleSubmit(async (values) => {
         productType: values.productType,
       },
     });
-    // Reset form after successful submission
     resetForm();
     
-    // Show success toast
+    //Instead of 'alert', I used 'Toast' here.
     toast.add({
       severity: 'success',
       summary: 'Success',
@@ -68,7 +62,6 @@ const submitForm = handleSubmit(async (values) => {
   } catch (error) {
     console.error('Submission error:', error);
     
-    // Show error toast
     toast.add({
       severity: 'error',
       summary: 'Error',
